@@ -1,0 +1,100 @@
+defining the smart phone class
+class Smartphone {
+  String model;
+  String brand;
+  int storageCapacity; // in GB
+  bool isOn;
+
+  // Constructor to initialize the attributes
+  Smartphone({required this.model, required this.brand, required this.storageCapacity, this.isOn = false});
+
+  // Method to turn on the smartphone
+  void turnOn() {
+    isOn = true;
+    print("$brand $model is now ON.");
+  }
+
+  // Method to turn off the smartphone
+  void turnOff() {
+    isOn = false;
+    print("$brand $model is now OFF.");
+  }
+
+  // Method to check if the phone is available for sale
+  void checkAvailability() {
+    if (isOn) {
+      print("$brand $model is currently in use.");
+    } else {
+      print("$brand $model is available for sale.");
+    }
+  }
+}
+
+poloymophism
+class GamingSmartphone extends Smartphone {
+  String graphicsChip;
+
+  // Constructor for GamingSmartphone
+  GamingSmartphone({required String model, required String brand, required int storageCapacity, required this.graphicsChip}) : super(model: model, brand: brand, storageCapacity: storageCapacity);
+
+  // Overriding the turnOn method to add a special message for gaming phones
+  @override
+  void turnOn() {
+    super.turnOn();
+    print("Ready for high-performance gaming with $graphicsChip graphics chip!");
+  }
+}
+
+creating objects and test functionality
+void main() {
+  // Creating a regular smartphone object
+  Smartphone iphone = Smartphone(model: "iPhone 13", brand: "Apple", storageCapacity: 128);
+  iphone.turnOn();
+  iphone.checkAvailability();
+
+  // Creating a gaming smartphone object
+  GamingSmartphone samsung = GamingSmartphone(model: "Galaxy Z", brand: "Samsung", storageCapacity: 512, graphicsChip: "Adreno 650");
+  samsung.turnOn();
+  samsung.checkAvailability();
+}
+
+create animal class
+class Animal {
+  // A generic move method
+  void move() {
+    print("The animal is moving.");
+  }
+}
+
+define sub class with polymopism
+class Dog extends Animal {
+  @override
+  void move() {
+    print("The dog is running.");
+  }
+}
+
+class Bird extends Animal {
+  @override
+  void move() {
+    print("The bird is flying.");
+  }
+}
+
+class Fish extends Animal {
+  @override
+  void move() {
+    print("The fish is swimming.");
+  }
+}
+create objects and test polymophism
+void main() {
+  Animal dog = Dog();
+  Animal bird = Bird();
+  Animal fish = Fish();
+
+  // Testing polymorphism, each move() method is unique to the subclass
+  dog.move();  // Outputs: The dog is running.
+  bird.move();  // Outputs: The bird is flying.
+  fish.move();  // Outputs: The fish is swimming.
+}
